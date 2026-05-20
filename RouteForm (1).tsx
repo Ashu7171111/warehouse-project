@@ -10,14 +10,39 @@ interface RouteFormProps {
   loading: boolean
 }
 
-const DEMO_DATA: RouteRequest = {
-  warehouse: { name: 'Main Warehouse', lat: 22.7196, lng: 75.8577 },
+cconst DEMO_DATA: RouteRequest = {
+  warehouse: {
+    name: 'Indore Railway Station',
+    lat: 22.719568,
+    lng: 75.857727
+  },
+
   locations: [
-    { name: 'Stop A – Market', lat: 22.7352, lng: 75.8412 },
-    { name: 'Stop B – Hospital', lat: 22.7058, lng: 75.8734 },
-    { name: 'Stop C – Mall', lat: 22.7446, lng: 75.9012 },
-    { name: 'Stop D – Station', lat: 22.7183, lng: 75.8843 },
+    {
+      name: 'Rajwada',
+      lat: 22.717736,
+      lng: 75.854482
+    },
+
+    {
+      name: 'Vijay Nagar',
+      lat: 22.753284,
+      lng: 75.893696
+    },
+
+    {
+      name: 'Khajrana Ganesh Temple',
+      lat: 22.728985,
+      lng: 75.906137
+    },
+
+    {
+      name: 'C21 Mall',
+      lat: 22.745221,
+      lng: 75.896843
+    }
   ],
+
   speed: 40,
   fuel_cost: 8,
 }
