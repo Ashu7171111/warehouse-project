@@ -955,14 +955,21 @@ function removeLocation(i)        { state.locationInputs.splice(i, 1); render();
 function updateLocName(i, v)      { state.locationInputs[i].name = v; }
 function updateLocCoord(i, f, v)  { state.locationInputs[i][f]  = v; }
 function clearHistory()           { state.history = []; render(); }
-
 function loadDemo() {
   state.locationInputs = [
-    { name: 'Stop A – Market',   lat: '22.7352', lng: '75.8412' },
-    { name: 'Stop B – Hospital', lat: '22.7058', lng: '75.8734' },
-    { name: 'Stop C – Mall',     lat: '22.7446', lng: '75.9012' },
-    { name: 'Stop D – Station',  lat: '22.7183', lng: '75.8843' },
+    { name: 'Rajwada',                 lat: '22.717736', lng: '75.854482' },
+    { name: 'Vijay Nagar',             lat: '22.753284', lng: '75.893696' },
+    { name: 'Khajrana Ganesh Temple',  lat: '22.728985', lng: '75.906137' },
+    { name: 'C21 Mall',                lat: '22.745221', lng: '75.896843' },
   ];
+
+  document.getElementById('warehouse-name').value = 'Indore Railway Station';
+  document.getElementById('warehouse-lat').value = '22.719568';
+  document.getElementById('warehouse-lng').value = '75.857727';
+
+  renderLocations();
+  optimizeRoute();
+}
   render();
   setTimeout(() => {
     const set = (id, v) => { const el = document.getElementById(id); if (el) el.value = v; };
