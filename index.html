@@ -955,7 +955,9 @@ function removeLocation(i)        { state.locationInputs.splice(i, 1); render();
 function updateLocName(i, v)      { state.locationInputs[i].name = v; }
 function updateLocCoord(i, f, v)  { state.locationInputs[i][f]  = v; }
 function clearHistory()           { state.history = []; render(); }
+
 function loadDemo() {
+  // Real Indore demo locations
   state.locationInputs = [
     { name: 'Rajwada',                 lat: '22.717736', lng: '75.854482' },
     { name: 'Vijay Nagar',             lat: '22.753284', lng: '75.893696' },
@@ -963,19 +965,26 @@ function loadDemo() {
     { name: 'C21 Mall',                lat: '22.745221', lng: '75.896843' },
   ];
 
-  document.getElementById('warehouse-name').value = 'Indore Railway Station';
-  document.getElementById('warehouse-lat').value = '22.719568';
-  document.getElementById('warehouse-lng').value = '75.857727';
-
-  renderLocations();
-  optimizeRoute();
-}
+  // Re-render form first
   render();
+
+  // Fill warehouse values after render
   setTimeout(() => {
-    const set = (id, v) => { const el = document.getElementById(id); if (el) el.value = v; };
-    set('wh-name','Main Warehouse'); set('wh-lat','22.7196'); set('wh-lng','75.8577');
-    set('speed','40'); set('fuel-cost','8');
-  }, 50);
+    const set = (id, value) => {
+      const el = document.getElementById(id);
+      if (el) el.value = value;
+    };
+
+    set('wh-name', 'Indore Railway Station');
+    set('wh-lat', '22.719568');
+    set('wh-lng', '75.857727');
+
+    set('speed', '40');
+    set('fuel-cost', '8');
+
+    // Auto optimize
+    optimizeRoute();
+  }, 100);
 }
 
 // ── PDF Export ─────────────────────────────────────────────────────────
